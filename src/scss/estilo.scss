@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Gayathri:wght@100;400;700&display=swap');
+
+
+$colorB:darkred;
+$color:white;
+$fontF:'Gayathri', sans-serif;
+$fontS:1.4rem;
+
+body {
+    background: $colorB;
+    color: $color;
+    font-family: $fontF;
+    letter-spacing:.2rem;
+   font-size:$fontS;
+}
+
+img {
+    display:block;
+    width:30rem;
+    height:auto;
+    margin:1rem auto;
+    max-width:100%;
+}
