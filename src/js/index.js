@@ -1,5 +1,8 @@
 
-import {l} from "./console.js";
+import {
+    l, 
+    Persona
+} from "./console.js";
 
 // import $ from "jQuery";  
 
@@ -37,7 +40,23 @@ renderEl("p","Hola a todos!","img");
 renderIm(img,"img")
 renderEl("p",undefined,"imgBg");
 
-// const upper = (n) => n.toUpperCase();
 
-// let resultado="este" > | upper;
 
+let obj ={
+    key1:"value 1",
+    key2:"value 2",
+    key3:"value 3",
+};
+
+let entries=Object.entries(obj);
+
+l(entries)
+
+let datos=[
+    90, 23, 45, 67, 193
+];
+
+l(Math.min(...datos))
+
+const luis = new Persona("Luis",47);
+l(luis)

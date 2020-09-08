@@ -1,7 +1,22 @@
 // import $ from "jQuery";
 
+class Persona {
+    constructor(
+        nombre, 
+        edad
+    ) {
+        this.nombre=nombre;
+        this.edad=edad;
 
-export const {log:l}=console;
+    }
+}
+
+const {log:l}=console;
+
+export {
+    l, 
+    Persona
+}
 
 // l($)
 

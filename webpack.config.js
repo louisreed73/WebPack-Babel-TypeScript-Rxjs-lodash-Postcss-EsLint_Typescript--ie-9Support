@@ -16,6 +16,7 @@ module.exports = {
     // publicPath:"/Webpack_6/dist/js"
     // publicPath:"/prueba/"
   },
+  devtool:"source-map",
   module: {
     rules: [
       {
@@ -35,6 +36,13 @@ module.exports = {
           },
         ],
       },
+      {
+        test:/\.js$/,
+        exclude:/node_modules/,
+        use:{
+          loader:"babel-loader"
+        }
+      }
 
     ],
   },
