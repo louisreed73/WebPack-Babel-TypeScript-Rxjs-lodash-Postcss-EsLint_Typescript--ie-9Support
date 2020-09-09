@@ -7,19 +7,24 @@ const {
 
 const MiniCssExtractPlugin=require("mini-css-extract-plugin");
 
+const CopyPlugin = require("copy-webpack-plugin");
+
+
 module.exports = {
   mode: "development",
   entry: {
-    index: "./src/ts/index.ts",
+    index: [
+    "core-js/modules/es.array.iterator",// bug fix when dynamic import() in ie 10/11
+      "./src/ts/index.ts",
+    ]
   },
   output: {
-    filename: "[name].[hash].js",
+    filename: "js/[name].[hash].js",
     path: path.resolve(__dirname, "dist"),
   },
   devtool: "source-map",
   resolve: {
     extensions: [".ts", ".js"],
-
   },
   module: {
     rules: [
@@ -40,8 +45,7 @@ module.exports = {
             options: {
               name: "[name].[ext]",
               outputPath: "imgs/",
-              publicPath:"./imgs",
-              // publicPath: path.resolve(__dirname, "./dist/imgs"),
+              publicPath: "../imgs", 
             },
           },
         ],
@@ -58,7 +62,6 @@ module.exports = {
   },
 
   devServer: {
-    // contentBase:"./dist",
     index: "indice.html",
     open: true,
     hot: true,
@@ -69,7 +72,9 @@ module.exports = {
     },
   },
   plugins: [
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({
+      filename:"css/[name].css"
+    }),
     new HtmlWebpackPlugin({
       title: "Una nueva App with Webpack",
       template: "./src/index.html",
@@ -85,5 +90,10 @@ module.exports = {
       $:"jQuery"
     }), */
     new CleanWebpackPlugin(),
+    new CopyPlugin({
+      patterns: [
+        { from: "src/imgs", to: "imgs" },
+      ],
+    }),
   ],
 };

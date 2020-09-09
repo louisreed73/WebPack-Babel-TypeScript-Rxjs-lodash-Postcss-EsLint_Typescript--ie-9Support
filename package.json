@@ -18,9 +18,11 @@
     "@babel/preset-typescript": "^7.10.4",
     "babel-loader": "^8.1.0",
     "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^6.1.0",
     "css-loader": "^4.2.2",
     "file-loader": "^6.1.0",
     "html-webpack-plugin": "^4.4.1",
+    "lodash": "^4.17.20",
     "mini-css-extract-plugin": "^0.11.1",
     "node-sass": "^4.14.1",
     "npm-run-all": "^4.1.5",
@@ -33,6 +35,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.11.2",
+    "@types/lodash": "^4.14.161",
     "core-js": "^3.6.5"
   }
 }
