@@ -4,7 +4,8 @@ import {
     Persona
 } from "./console";
 
-
+import {Observable, interval, of,Subscription,from, fromEvent} from "rxjs";
+// import Rx from "rxjs/Observable";
 
 // import * as _ from "lodash";
 
@@ -15,6 +16,11 @@ import {
 
 
 import "../scss/estilo.scss";
+
+/* let este=new Observable(obs=>{
+    obs.next(1)
+    obs.next(2)
+}) */
 
 // import img from "../imgs/img1.jpg";
 // import img2 from "../imgs/img2.png";
@@ -54,17 +60,41 @@ num1=123;
 const button=document.querySelector("button")!;
 l(button)
 
-button.addEventListener("click",async ()=>{
-/*     const data=await import("https://api.icndb.com/jokes/random/3")
-    const bromas= await data.json(); */
-    const data=await import("lodash")
-   const {partition}= await data.default
-    const part = partition([1, 2, 3, 4,5], (n) => n % 2); 
-    // const _= data.default
-    // const part = _.partition([1, 2, 3, 4], (n) => n % 2);
-    
-    // l(bromas.value)
 
-    l(part);
-    l("button click!!!!")
+
+// Rx.Observable.of("foo", "bar");
+
+const esta=interval(250);
+
+let sub:Subscription=esta.subscribe(d=>{
+    l(d);
+
+    if(d===12) {
+        console.log("Ahora debes pararte!!!")
+        l(sub)
+        sub.unsubscribe()
+    }
+
+    
 })
+
+
+
+const er=from([1,2,3])
+
+er.subscribe(d=>l(d))
+
+fromEvent(button, "click").subscribe(async () => {
+  /*     const data=await import("https://api.icndb.com/jokes/random/3")
+    const bromas= await data.json(); */
+  const data = await import("lodash");
+  const { partition } = await data.default;
+  const part = partition([1, 2, 3, 4, 5], (n) => n % 2);
+  // const _= data.default
+  // const part = _.partition([1, 2, 3, 4], (n) => n % 2);
+
+  // l(bromas.value)
+
+  l(part);
+  l("button click!!!!");
+});
