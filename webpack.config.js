@@ -5,23 +5,32 @@ const {
     CleanWebpackPlugin
 } = require("clean-webpack-plugin");
 
+const MiniCssExtractPlugin=require("mini-css-extract-plugin");
+
 module.exports = {
   mode: "development",
   entry: {
-    index: "./src/js/index.js",
+    index: "./src/ts/index.ts",
   },
   output: {
     filename: "[name].[hash].js",
     path: path.resolve(__dirname, "dist"),
-    // publicPath:"/Webpack_6/dist/js"
-    // publicPath:"/prueba/"
   },
-  devtool:"source-map",
+  devtool: "source-map",
+  resolve: {
+    extensions: [".ts", ".js"],
+
+  },
   module: {
     rules: [
       {
         test: /\.s?css$/,
-        use: ["style-loader", "css-loader", "sass-loader"],
+        use: [
+          MiniCssExtractPlugin.loader,
+          // "style-loader",
+          "css-loader",
+          "sass-loader",
+        ],
       },
       {
         test: /\.(png|jpg|jpeg|gif)$/,
@@ -30,22 +39,24 @@ module.exports = {
             loader: "file-loader",
             options: {
               name: "[name].[ext]",
-              outputPath: "images/",
-              publicPath: "/images/",
+              outputPath: "imgs/",
+              publicPath:"./imgs",
+              // publicPath: path.resolve(__dirname, "./dist/imgs"),
             },
           },
         ],
       },
-      {
-        test:/\.js$/,
-        exclude:/node_modules/,
-        use:{
-          loader:"babel-loader"
-        }
-      }
 
+      {
+        test: /\.ts$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+        },
+      },
     ],
   },
+
   devServer: {
     // contentBase:"./dist",
     index: "indice.html",
@@ -58,6 +69,7 @@ module.exports = {
     },
   },
   plugins: [
+    new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       title: "Una nueva App with Webpack",
       template: "./src/index.html",

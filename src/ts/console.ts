@@ -2,8 +2,8 @@
 
 class Persona {
     constructor(
-        nombre, 
-        edad
+        private nombre:string, 
+        private edad:number
     ) {
         this.nombre=nombre;
         this.edad=edad;
