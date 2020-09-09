@@ -59,7 +59,7 @@ button.addEventListener("click",async ()=>{
     const bromas= await data.json(); */
     const data=await import("lodash")
    const {partition}= await data.default
-    const part = partition([1, 2, 3, 4], (n) => n % 2); 
+    const part = partition([1, 2, 3, 4,5], (n) => n % 2); 
     // const _= data.default
     // const part = _.partition([1, 2, 3, 4], (n) => n % 2);
     
