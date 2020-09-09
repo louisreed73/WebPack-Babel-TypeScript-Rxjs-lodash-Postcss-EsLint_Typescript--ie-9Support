@@ -113,7 +113,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "cdc9244e473280d42807";
+/******/ 	var hotCurrentHash = "2ffdd1196d01982c8cf8";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -830,7 +830,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "js/" + ({}[chunkId]||chunkId) + "." + hotCurrentHash + ".js"
+/******/ 		return __webpack_require__.p + "" + ({}[chunkId]||chunkId) + ".chunk.js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -1020,7 +1020,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Persona", function() { return Persona; });
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-// import $ from "jQuery";
+// import { Observable, interval, of, Subscription, from, fromEvent } from "rxjs";
 var Persona = function Persona(nombre, edad) {
   _classCallCheck(this, Persona);
 
@@ -1171,4 +1171,4 @@ module.exports = __webpack_require__(/*! ./src/ts/index.ts */"./src/ts/index.ts"
 /***/ })
 
 /******/ });
-//# sourceMappingURL=index.cdc9244e473280d42807.js.map
+//# sourceMappingURL=index.2ffdd1196d01982c8cf8.js.map

@@ -14,13 +14,14 @@ module.exports = {
   mode: "development",
   entry: {
     index: [
-    "core-js/modules/es.array.iterator",// bug fix when dynamic import() in ie 10/11
+      "core-js/modules/es.array.iterator", // bug fix when dynamic import() in ie 10/11
       "./src/ts/index.ts",
-    ]
+    ],
   },
   output: {
     filename: "js/[name].[hash].js",
     path: path.resolve(__dirname, "dist"),
+    chunkFilename: "[name].chunk.js",
   },
   devtool: "source-map",
   resolve: {
@@ -45,7 +46,7 @@ module.exports = {
             options: {
               name: "[name].[ext]",
               outputPath: "imgs/",
-              publicPath: "../imgs", 
+              publicPath: "../imgs",
             },
           },
         ],
@@ -73,7 +74,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename:"css/[name].css"
+      filename: "css/[name].css",
     }),
     new HtmlWebpackPlugin({
       title: "Una nueva App with Webpack",
@@ -91,9 +92,7 @@ module.exports = {
     }), */
     new CleanWebpackPlugin(),
     new CopyPlugin({
-      patterns: [
-        { from: "src/imgs", to: "imgs" },
-      ],
+      patterns: [{ from: "src/imgs", to: "imgs" }],
     }),
   ],
 };

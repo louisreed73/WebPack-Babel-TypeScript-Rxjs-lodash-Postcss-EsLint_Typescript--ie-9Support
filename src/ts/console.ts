@@ -1,4 +1,4 @@
-// import $ from "jQuery";
+// import { Observable, interval, of, Subscription, from, fromEvent } from "rxjs";
 
 class Persona {
     constructor(
