@@ -16,7 +16,7 @@ const {log:l}=console;
 export {
     l, 
     Persona
-}
+};
 
 // l($)
 

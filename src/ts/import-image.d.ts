@@ -1,9 +1,11 @@
+
+
 declare module "*.jpg" {
-  const value: any;
+  const value: unknown;
   export default value;
 }
 declare module "*.png" {
-  const value: any;
+  const value: unknown;
   export default value;
 }
 /* declare module "*.js" {

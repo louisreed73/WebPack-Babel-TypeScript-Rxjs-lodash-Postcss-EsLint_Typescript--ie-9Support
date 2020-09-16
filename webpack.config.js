@@ -1,5 +1,5 @@
 const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin")
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
 const {
     CleanWebpackPlugin
@@ -35,6 +35,7 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           // "style-loader",
           "css-loader",
+          "postcss-loader",
           "sass-loader",
         ],
       },
@@ -55,9 +56,9 @@ module.exports = {
       {
         test: /\.ts$/,
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-        },
+        use: [
+          "babel-loader",
+        ],
       },
     ],
   },

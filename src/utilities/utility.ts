@@ -1,10 +1,15 @@
-export function cO (obj:{}|[]|Function|undefined,color:string,depth:number) {
+function cO (obj:unknown,color:string,depth:number):void {
 
         console.log(`%c${JSON.stringify(obj, null, depth)}`, `color:${color}`);
 
 }
-export function cL (str:any,color:string) {
+function cL (str:unknown,color:string):void {
 
         console.log(`%c${str}`, `color:${color}`);
 
 }
+
+export {
+        cO,
+        cL
+};
